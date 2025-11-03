@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Optionally set absolute URLs for social previews when deployed
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+// Set absolute URLs for social previews; prefer env but fall back to your production URL
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-9r73.vercel.app"; //Will change this url
 
 // Ensure proper mobile viewport
 export const viewport = {
@@ -26,9 +26,8 @@ export const viewport = {
 };
 
 export const metadata = {
-  // When NEXT_PUBLIC_SITE_URL is set in your environment (e.g., Vercel),
-  // Next.js will generate absolute URLs for OG/Twitter tags.
-  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  // Use absolute base URL for OG/Twitter. Environment variable overrides the default when present.
+  metadataBase: new URL(siteUrl),
   title: "Ebenezer Fuachie — Portfolio",
   description:
     "Personal portfolio of Ebenezer Fuachie showcasing projects, experience, and ways to get in touch.",
