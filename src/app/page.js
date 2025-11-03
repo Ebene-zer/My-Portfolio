@@ -344,7 +344,7 @@ export default function Home() {
                 Interested in working together or have a question? I typically respond within 24–48 hours.
               </p>
               <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                Email is best, but you can also reach me on LinkedIn or GitHub.
+                Email or WhatsApp is best, but you can also reach me on LinkedIn or GitHub.
               </p>
             </div>
 
@@ -434,6 +434,18 @@ export default function Home() {
               </svg>
               Email
             </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-gray-800 transition hover:text-[var(--accent-gold)] dark:text-gray-200"
+              aria-label="WhatsApp Ebenezer"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-[#25D366]">
+                <path d="M20.52 3.48A11.983 11.983 0 0 0 12.01 0C5.4 0 .05 5.35.05 11.96c0 2.11.55 4.17 1.59 5.99L0 24l6.2-1.62a11.94 11.94 0 0 0 5.81 1.52h.01c6.61 0 11.96-5.35 11.96-11.96 0-3.2-1.25-6.2-3.46-8.46ZM12.02 21.3h-.01a9.34 9.34 0 0 1-4.76-1.31l-.34-.2-1.5.39a1 1 0 0 1-1.2-1.2l.39-1.5-1.31-.34a9.34 9.34 0 0 1-1.31-4.76v-.01a9.34 9.34 0 0 1 1.31-4.76l.34-.2-.39-1.5a1 1 0 0 1 1.2-1.2l1.5.39.2-.34A9.34 9.34 0 0 1 12.02 3h.01a9.34 9.34 0 0 1 4.76 1.31l.34.2 1.5-.39a1 1 0 0 1 1.2 1.2l-.39 1.5.2.34A9.34 9.34 0 0 1 21.3 12h.01a9.34 9.34 0 0 1-1.31 4.76l-.34.2.39 1.5a1 1 0 0 1-1.2 1.2l-1.5-.39-.2.34A9.34 9.34 0 0 1 12.02 21.3Z" />
+              </svg>
+              WhatsApp
+            </a> 
             <a
               href="https://github.com/Ebene-zer"
               target="_blank"
