@@ -58,6 +58,13 @@ export default function Home() {
     Postman: "https://www.postman.com/",
   };
 
+  // WhatsApp config (set NEXT_PUBLIC_WHATSAPP in your env, e.g. +233555123456)
+  const whatsappNumberRaw = process.env.NEXT_PUBLIC_WHATSAPP || "";
+  const whatsappNumber = whatsappNumberRaw.replace(/[^0-9]/g, ""); // keep digits only
+  const whatsappText = "Hello Ebenezer, I saw your portfolio and would like to connect.";
+  const whatsappHref =
+    whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}` : null;
+
   const renderBrandLogo = (name) => {
     const slug = brandSlugs[name];
     const hex = (brandColors[name] || "#6B7280").replace("#", "");
@@ -84,6 +91,14 @@ export default function Home() {
       features: ["Inventory", "Sales", "Reports"],
       icon: "/tradia.ico",
     },
+
+    {
+      title: "Personal Portfolio Website",
+      description: "Personal portfolio website built with Next.js and Tailwind CSS.",
+      tags: ["Next.js", "Tailwind CSS"],
+      features: ["Responsive Design", "Smooth Scrolling"],
+      icon: "/favicon.ico",
+    }
   ];
 
   return (
@@ -329,7 +344,7 @@ export default function Home() {
                 Interested in working together or have a question? I typically respond within 24–48 hours.
               </p>
               <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                Email is best, but you can also reach me on GitHub or LinkedIn.
+                Email is best, but you can also reach me on LinkedIn or GitHub.
               </p>
             </div>
 
@@ -345,6 +360,21 @@ export default function Home() {
                 </svg>
                 Email me
               </a>
+
+              {whatsappHref && (
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#25D366] px-5 py-3 text-sm font-medium text-[#128C7E] transition hover:bg-[#25D3661A]"
+                  aria-label="WhatsApp Ebenezer"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-[#25D366]">
+                    <path d="M20.52 3.48A11.983 11.983 0 0 0 12.01 0C5.4 0 .05 5.35.05 11.96c0 2.11.55 4.17 1.59 5.99L0 24l6.2-1.62a11.94 11.94 0 0 0 5.81 1.52h.01c6.61 0 11.96-5.35 11.96-11.96 0-3.2-1.25-6.2-3.46-8.46ZM12.02 21.3h-.01a9.34 9.34 0 0 1-4.76-1.31l-.34-.2-3.68.96.98-3.59-.22-.37a9.3 9.3 0 0 1-1.43-4.95c0-5.15 4.19-9.34 9.35-9.34 2.5 0 4.85.97 6.61 2.73a9.27 9.27 0 0 1 2.73 6.61c0 5.16-4.2 9.34-9.43 9.34Zm5.38-6.98c-.29-.14-1.73-.86-2-.96-.27-.1-.46-.14-.66.14-.19.28-.76.96-.94 1.15-.17.19-.35.21-.64.07-.29-.14-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.35.43-.52.14-.17.19-.28.29-.48.1-.2.05-.38-.02-.52-.07-.14-.66-1.6-.91-2.19-.24-.57-.49-.49-.66-.5-.17-.01-.36-.01-.55-.01-.2 0-.52.07-.79.38-.27.31-1.04 1.02-1.04 2.49 0 1.46 1.07 2.88 1.22 3.08.14.19 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.73-.71 1.98-1.39.24-.67.24-1.25.17-1.39-.07-.14-.26-.22-.55-.36Z" />
+                  </svg>
+                  WhatsApp
+                </a>
+              )}
 
               <a
                 href="https://github.com/Ebene-zer"
@@ -379,7 +409,7 @@ export default function Home() {
       <footer className="mt-16 border-t border-[var(--accent-gold)] bg-white/60 py-8 text-sm text-gray-700 backdrop-blur dark:bg-black/40 dark:text-gray-300">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 sm:flex-row">
           <p className="text-center sm:text-left">
-            © {new Date().getFullYear()} <span className="font-semibold">Ebenezer Fuachie</span>. Built with Next.js & Tailwind CSS.
+            © {new Date().getFullYear()} <span className="font-semibold">Ebenezer Fuachie</span>. 
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">

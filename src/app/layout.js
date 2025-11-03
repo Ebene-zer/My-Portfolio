@@ -12,8 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Set absolute URLs for social previews; prefer env but fall back to your production URL
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-9r73.vercel.app"; //Will change this url
+// Absolute base URL: use env when set; during local dev, default to localhost; in production without env, omit
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.NODE_ENV === "development" ? "http://localhost:3000" : undefined);
 
 // Ensure proper mobile viewport
 export const viewport = {
@@ -26,13 +28,13 @@ export const viewport = {
 };
 
 export const metadata = {
-  // Use absolute base URL for OG/Twitter. Environment variable overrides the default when present.
-  metadataBase: new URL(siteUrl),
+  // Use absolute base URL for OG/Twitter. Env overrides; dev defaults to localhost.
+  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
   title: "Ebenezer Fuachie — Portfolio",
   description:
     "Personal portfolio of Ebenezer Fuachie showcasing projects, experience, and ways to get in touch.",
-  applicationName: "Portfolio",
   authors: [{ name: "Ebenezer Fuachie" }],
+  applicationName: "Fuachie Portfolio",
   keywords: [
     "Ebenezer Fuachie",
     "portfolio",
