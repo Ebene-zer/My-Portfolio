@@ -117,15 +117,18 @@ export default function Home() {
 
       <main id="content" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
         {/* Hero */}
-        <section id="home" className="mb-16 scroll-mt-24 sm:mb-24">
-          <div className="mb-6 flex flex-col items-center justify-between gap-6 sm:flex-row-reverse">
+        <section
+          id="home"
+          className="mb-16 scroll-mt-24 sm:mb-24 min-h-[calc(100svh-128px)] sm:min-h-[calc(100svh-160px)] flex items-center"
+        >
+          <div className="mb-6 flex flex-col items-center gap-6 sm:flex-row-reverse sm:items-center sm:justify-center sm:gap-4">
             <Image
               src="/profile.jpg"
               alt="Portrait of Ebenezer Fuachie"
               width={180}
               height={180}
               priority
-              className="shrink-0 rounded-full ring-2 ring-[var(--accent-gold)] sm:-translate-x-[3cm] sm:translate-y-[1cm] transform transition-transform duration-300 ease-out [will-change:transform]"
+              className="shrink-0 rounded-full ring-2 ring-[var(--accent-gold)] transform transition-transform duration-300 ease-out [will-change:transform]"
             />
             <div className="text-center sm:text-left">
               <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl">Ebenezer Fuachie</h1>
@@ -135,22 +138,22 @@ export default function Home() {
               <p className="mt-3 text-lg font-semibold text-[var(--accent-green)] typewriter">
                 Let&apos;s Solve Problems!
               </p>
+              {/* Primary actions aligned with left margin on desktop */}
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-start">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center justify-center rounded-lg bg-[var(--accent-gold)] px-5 py-3 text-sm font-medium text-black transition hover:opacity-90"
+                >
+                  View Projects
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-[var(--accent-green)] px-5 py-3 text-sm font-medium text-[var(--accent-green)] transition hover:bg-[#16a34a1A]"
+                >
+                  Contact Me
+                </a>
+              </div>
             </div>
-          </div>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#projects"
-              className="inline-flex items-center justify-center rounded-lg bg-[var(--accent-gold)] px-5 py-3 text-sm font-medium text-black transition hover:opacity-90"
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-lg border border-[var(--accent-green)] px-5 py-3 text-sm font-medium text-[var(--accent-green)] transition hover:bg-[#16a34a1A]"
-            >
-              Contact Me
-            </a>
           </div>
 
           
@@ -403,8 +406,8 @@ export default function Home() {
 
       <footer className="mt-16 border-t border-[var(--accent-gold)] bg-white/60 py-8 text-sm text-gray-700 backdrop-blur dark:bg-black/40 dark:text-gray-300">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 sm:flex-row">
-          <p className="text-center sm:text-left">
-            © {new Date().getFullYear()} <span className="font-semibold">Ebenezer Fuachie</span>. 
+          <p className="text-center sm:text-center">
+            © {new Date().getFullYear()} <span className="font-semibold">Ebenezer Fuachie</span>.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
