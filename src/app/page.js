@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ClientNav from "@/components/ClientNav";
 import HeaderBar from "@/components/HeaderBar";
 
 export default function Home() {
