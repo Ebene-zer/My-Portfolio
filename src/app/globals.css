@@ -43,3 +43,36 @@ html {
     transform: translateY(0) scale(1);
   }
 }
+
+/* Typewriter effect for short call-to-action text */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid currentColor; /* caret */
+  width: 20ch; /* matches length of 'Lets Solve Problems!' */
+  will-change: width;
+  /* Type out, short hold, quick reset to 0, repeat */
+  animation:
+    typingLoop 4s steps(20, end) 0.4s infinite,
+    caret 0.8s step-end infinite;
+}
+
+@keyframes typingLoop {
+  0% { width: 0 }
+  80% { width: 20ch }   /* typing phase */
+  92% { width: 20ch }   /* brief hold */
+  100% { width: 0 }     /* quick reset */
+}
+
+@keyframes caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter {
+    animation: none;
+    border-right: 0;
+  }
+}

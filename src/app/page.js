@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ClientNav from "@/components/ClientNav";
+import HeaderBar from "@/components/HeaderBar";
 
 export default function Home() {
   // Brand color map for simple inline dot icons
@@ -111,16 +112,8 @@ export default function Home() {
         Skip to content
       </a>
 
-      {/* Top navigation */}
-      <header className="sticky top-0 z-40 bg-[linear-gradient(90deg,var(--accent-gold),var(--accent-green))] text-white shadow-sm border-b border-[var(--accent-gold)]">
-        <nav
-          aria-label="Primary"
-          className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3"
-        >
-          <span className="text-base sm:text-lg font-semibold tracking-tight text-white">Ebenezer Fuachie</span>
-          <ClientNav />
-        </nav>
-      </header>
+      {/* Top navigation with scroll-aware avatar */}
+      <HeaderBar />
 
       <main id="content" className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
         {/* Hero */}
@@ -138,6 +131,9 @@ export default function Home() {
               <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl">Ebenezer Fuachie</h1>
               <p className="mt-2 text-xl font-medium text-gray-700 dark:text-gray-200 sm:text-2xl">
                 Aspiring Software Engineer
+              </p>
+              <p className="mt-3 text-lg font-semibold text-[var(--accent-green)] typewriter">
+                Let&apos;s Solve Problems!
               </p>
             </div>
           </div>
