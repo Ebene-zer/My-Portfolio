@@ -65,6 +65,14 @@ export default function Home() {
   const whatsappHref =
     whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappText)}` : null;
 
+  // Dev-only hint if the WhatsApp env var isn't set
+  if (process.env.NODE_ENV === "development" && !whatsappHref) {
+    console.warn(
+      "NEXT_PUBLIC_WHATSAPP is not set or invalid; the WhatsApp button will be disabled/hidden.\n" +
+        "Add it to .env.local (e.g., NEXT_PUBLIC_WHATSAPP=+233555123456) and restart the dev server."
+    );
+  }
+
   const renderBrandLogo = (name) => {
     const slug = brandSlugs[name];
     const hex = (brandColors[name] || "#6B7280").replace("#", "");
@@ -450,7 +458,7 @@ export default function Home() {
                 Email me
               </a>
 
-              {whatsappHref && (
+              {whatsappHref ? (
                 <a
                   href={whatsappHref}
                   target="_blank"
@@ -463,6 +471,17 @@ export default function Home() {
                   </svg>
                   WhatsApp
                 </a>
+              ) : (
+                <span
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 px-5 py-3 text-sm font-medium text-gray-400 cursor-not-allowed select-none dark:border-gray-700 dark:text-gray-500"
+                  aria-disabled="true"
+                  title="Set NEXT_PUBLIC_WHATSAPP to enable WhatsApp"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-gray-300 dark:fill-gray-600">
+                    <path d="M20.52 3.48A11.983 11.983 0 0 0 12.01 0C5.4 0 .05 5.35.05 11.96c0 2.11.55 4.17 1.59 5.99L0 24l6.2-1.62a11.94 11.94 0 0 0 5.81 1.52h.01c6.61 0 11.96-5.35 11.96-11.96 0-3.2-1.25-6.2-3.46-8.46ZM12.02 21.3h-.01a9.34 9.34 0 0 1-4.76-1.31l-.34-.2-1.5.39a1 1 0 0 1-1.2-1.2l.39-1.5-1.31-.34a9.34 9.34 0 0 1-1.31-4.76v-.01a9.34 9.34 0 0 1 1.31-4.76l.34-.2-.39-1.5a1 1 0 0 1 1.2-1.2l1.5.39.2-.34A9.34 9.34 0 0 1 12.02 3h.01a9.34 9.34 0 0 1 4.76 1.31l.34.2 1.5-.39a1 1 0 0 1 1.2 1.2l-.39 1.5.2.34A9.34 9.34 0 0 1 21.3 12h.01a9.34 9.34 0 0 1-1.31 4.76l-.34.2.39 1.5a1 1 0 0 1-1.2 1.2l-1.5-.39-.2.34A9.34 9.34 0 0 1 12.02 21.3Z" />
+                  </svg>
+                  WhatsApp
+                </span>
               )}
 
               <a

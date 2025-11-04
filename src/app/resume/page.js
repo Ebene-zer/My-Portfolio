@@ -45,10 +45,12 @@ export default function ResumePage() {
         </object>
       </div>
 
-      <p className="mt-4 text-sm text-gray-500">
-        Don’t see the PDF? Ensure a file named <code>resume.pdf</code> exists in your <code>public/</code> folder
-        or set <code>NEXT_PUBLIC_RESUME_URL</code> to an external document (e.g., Google Drive) and redeploy.
-      </p>
+      {process.env.NODE_ENV === "development" && (
+        <p className="mt-4 text-sm text-gray-500">
+          Don’t see the PDF? Ensure a file named <code>resume.pdf</code> exists in your <code>public/</code> folder
+          or set <code>NEXT_PUBLIC_RESUME_URL</code> to an external document (e.g., Google Drive) and redeploy.
+        </p>
+      )}
     </main>
   );
 }
