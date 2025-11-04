@@ -76,3 +76,100 @@ html {
     border-right: 0;
   }
 }
+
+/* Subtle animated background for the hero section only */
+.hero-flow {
+  position: relative;
+  isolation: isolate; /* keep pseudo-elements behind content */
+}
+
+.hero-flow::before,
+.hero-flow::after {
+  /* Disable background line layers when only icons should be visible */
+  content: none;
+  position: absolute;
+  /* (inactive) */
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  will-change: auto;
+}
+
+/* Diagonal flow layer (green-ish), faster */
+
+/* Counter-diagonal flow layer (gold-ish), slower and lighter */
+
+@keyframes heroFlowA {
+  from { background-position: 0px 0px; }
+  to   { background-position: 600px 900px; }
+}
+
+@keyframes heroFlowB {
+  from { background-position: 0px 0px; }
+  to   { background-position: -500px 700px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-flow::before,
+  .hero-flow::after {
+    animation: none;
+  }
+}
+
+/* Floating process icons (nodes) */
+.hero-nodes {
+  z-index: 1;
+  /* Fade nodes near edges to avoid a hard cutoff where animation ends */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 6%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 6%, rgba(0,0,0,1) 92%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+.process-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  opacity: 0.8;
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent-green) 18%, transparent);
+  translate: 0 0;
+  scale: 1;
+  will-change: translate, scale;
+}
+
+/* Larger faint nodes */
+.process-lg { width: 16px; height: 16px; opacity: 0.6; }
+
+/* SVG sizing and style */
+.process-node svg { width: 100%; height: 100%; display: block; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Two flow directions, matching the background layers */
+.process-node.process-a {
+  color: var(--accent-green);
+  animation: nodeDriftA var(--t, 34s) linear infinite, nodePulse 3.6s ease-in-out infinite;
+}
+.process-node.process-b {
+  color: var(--accent-gold);
+  animation: nodeDriftB var(--t, 40s) linear infinite, nodePulse 4.2s ease-in-out infinite;
+}
+
+@keyframes nodeDriftA {
+  from { translate: 0 0; transform: translate3d(0,0,0); }
+  to   { translate: 600px 900px; transform: translate3d(600px, 900px, 0); }
+}
+
+@keyframes nodeDriftB {
+  from { translate: 0 0; transform: translate3d(0,0,0); }
+  to   { translate: -500px 700px; transform: translate3d(-500px, 700px, 0); }
+}
+
+@keyframes nodePulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent-green) 0%, transparent); scale: 1; }
+  50% { box-shadow: 0 0 10px 2px color-mix(in oklab, var(--accent-gold) 22%, transparent); scale: 1.25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-node { animation: none; }
+}

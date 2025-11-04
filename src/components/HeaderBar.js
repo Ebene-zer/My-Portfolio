@@ -28,7 +28,7 @@ export default function HeaderBar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 bg-[linear-gradient(90deg,var(--accent-gold),var(--accent-green))] text-white shadow-sm border-b border-[var(--accent-gold)]">
+    <header className="sticky top-0 z-40 bg-[linear-gradient(90deg,var(--accent-gold),var(--accent-green))] text-white shadow-sm">
       <nav
         aria-label="Primary"
         className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3"
