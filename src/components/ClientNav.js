@@ -83,11 +83,9 @@ export default function ClientNav() {
           Contact
         </a>
         <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noreferrer noopener"
+          href="/resume"
           className={base}
-          title="Open resume in a new tab"
+          title="View resume"
         >
           Resume
         </a>
@@ -151,9 +149,7 @@ export default function ClientNav() {
             Contact
           </a>
           <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer noopener"
+            href="/resume"
             role="menuitem"
             className="block rounded-md px-3 py-2 text-gray-900 hover:bg-white/60 dark:text-gray-100 dark:hover:bg-white/10"
             onClick={() => setOpen(false)}
