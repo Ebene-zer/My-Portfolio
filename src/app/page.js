@@ -104,6 +104,7 @@ export default function Home() {
       title: "Personal Portfolio Website",
       description: "Personal portfolio website built with Next.js and Tailwind CSS.",
       tags: ["Next.js", "Tailwind CSS"],
+      href: "https://efuachie.vercel.app/",
       features: ["Responsive Design", "Smooth Scrolling"],
       icon: "/favicon.ico",
     }
@@ -231,7 +232,7 @@ export default function Home() {
             <div className="text-center sm:text-left">
               <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl">Ebenezer Fuachie</h1>
               <p className="mt-2 text-xl font-medium text-gray-700 dark:text-gray-200 sm:text-2xl">
-                Aspiring Software Engineer
+                Junior Software Engineer
               </p>
               <p className="mt-3 text-lg font-semibold text-[var(--accent-green)] typewriter">
                 Let&apos;s Solve Problems!
@@ -262,13 +263,13 @@ export default function Home() {
           <h2 className="text-2xl font-semibold tracking-tight">About</h2>
           <span className="mt-1 block h-1 w-12 rounded bg-[var(--accent-gold)]" aria-hidden="true" />
           <p className="mt-3 max-w-2xl text-gray-600 dark:text-gray-300">
-            Aspiring Software Engineer passionate about problem-solving and lifelong learning.
-           I enjoy contributing to impactful solutions while learning and growing through every challenge and win.
+           I&apos;m a Junior Software Engineer with a strong focus on backend development using python (open to Learning New Stacks as well). 
+           I enjoy building real-world applications, learning through practical projects, and refining solutions to make them efficient and user-focused.
            Currently open to internships and entry-level software development opportunities.
 
           </p>
           <p className="mt-3 max-w-2xl text-gray-600 dark:text-gray-300">
-            Area of interest: Software Development Life Cycle (SDLC), Data Structures & Algorithm and Backend development
+            Interests: Software Development Life Cycle (SDLC), Data Structures & Algorithm, SQL, APIs and Backend development
           </p>
           {/* Divider between About and Tech Stack (tiny gold dots) */}
           <div className="mt-6 flex items-center justify-center" aria-hidden="true">
