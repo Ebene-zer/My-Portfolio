@@ -1,62 +1,11 @@
 import Image from "next/image";
 import HeaderBar from "@/components/HeaderBar";
+import TechStack from "@/components/TechStack";
+import HeroNodes from "@/components/HeroNodes";
+import ContactActions from "@/components/ContactActions";
+import { projects } from "@/data/projects";
 
 export default function Home() {
-  // Brand color map for simple inline dot icons
-  const brandColors = {
-    Python: "#3776AB",
-    Java: "#007396",
-    "C++": "#00599C",
-    JavaScript: "#F7DF1E",
-    "Next.js": "#000000",
-    "Tailwind CSS": "#06B6D4",
-    PyQt: "#41CD52",
-    Git: "#F05032",
-    GitHub: "#181717",
-    Postman: "#FF6C37",
-  };
-
-  const renderBrandIcon = (name) => {
-    const fill = brandColors[name] || "#9CA3AF"; // fallback gray-400
-    // Small colored dot; stroke adds contrast on light chips, subtle in dark mode
-    return (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 16 16"
-        className="h-3.5 w-3.5"
-        focusable="false"
-      >
-        <circle cx="8" cy="8" r="7" fill={fill} stroke="rgba(0,0,0,0.08)" strokeWidth="1" />
-      </svg>
-    );
-  };
-
-  // Map display name -> Simple Icons slug and official URLs
-  const brandSlugs = {
-    Python: "python",
-    Java: "java",
-    "C++": "cplusplus",
-    JavaScript: "javascript",
-    "Next.js": "nextdotjs",
-    "Tailwind CSS": "tailwindcss",
-    PyQt: "qt",
-    Git: "git",
-    GitHub: "github",
-    Postman: "postman",
-  };
-
-  const brandUrls = {
-    Python: "https://www.python.org/",
-    Java: "https://www.java.com/",
-    "C++": "https://isocpp.org/",
-    JavaScript: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    "Next.js": "https://nextjs.org/",
-    "Tailwind CSS": "https://tailwindcss.com/",
-    PyQt: "https://www.riverbankcomputing.com/software/pyqt/",
-    Git: "https://git-scm.com/",
-    GitHub: "https://github.com/",
-    Postman: "https://www.postman.com/",
-  };
 
   // WhatsApp config (set NEXT_PUBLIC_WHATSAPP in your env, e.g. +233555123456)
   const whatsappNumberRaw = process.env.NEXT_PUBLIC_WHATSAPP || "";
@@ -73,42 +22,8 @@ export default function Home() {
     );
   }
 
-  const renderBrandLogo = (name) => {
-    const slug = brandSlugs[name];
-    const hex = (brandColors[name] || "#6B7280").replace("#", "");
-    if (!slug) return renderBrandIcon(name);
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={`https://cdn.simpleicons.org/${slug}/${hex}`}
-        alt=""
-        aria-hidden="true"
-        className="h-3.5 w-3.5"
-        loading="lazy"
-        decoding="async"
-      />
-    );
-  };
-
-  const projects = [
-    {
-      title: "Tradia",
-      description: "Wholesale Management System.",
-      tags: ["Python", "PyQt6"],
-      href: "https://github.com/Ebene-zer/Tradia/releases",
-      features: ["Inventory", "Sales", "Reports"],
-      icon: "/tradia.ico",
-    },
-
-    {
-      title: "Personal Portfolio Website",
-      description: "Personal portfolio website built with Next.js and Tailwind CSS.",
-      tags: ["Next.js", "Tailwind CSS"],
-      href: "https://efuachie.vercel.app/",
-      features: ["Responsive Design", "Smooth Scrolling"],
-      icon: "/favicon.ico",
-    }
-  ];
+  
+  
 
   return (
     <>
@@ -130,96 +45,7 @@ export default function Home() {
           className="mb-16 scroll-mt-24 sm:mb-24 min-h-[calc(100svh-64px)] sm:min-h-[calc(100svh-64px)] flex items-center relative overflow-hidden hero-flow pt-10 sm:pt-14"
         >
           {/* Decorative process icons (nodes) drifting behind content */}
-          <div className="hero-nodes pointer-events-none absolute inset-0 z-[1]" aria-hidden="true">
-            {/* Group A: follows green layer direction */}
-            <span className="process-node process-a" style={{ top: "10%", left: "8%", animationDelay: "0s", ["--t"]: "30s" }}>
-              {/* curly braces */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M11 5c-2 0-3 1.5-3 3 0 1-.6 1.8-2 2.2 1.4.4 2 1.2 2 2.2 0 1.5 1 3 3 3" />
-                <path d="M13 5c2 0 3 1.5 3 3 0 1 .6 1.8 2 2.2-1.4.4-2 1.2-2 2.2 0 1.5-1 3-3 3" />
-              </svg>
-            </span>
-            <span className="process-node process-a" style={{ top: "30%", left: "-4%", animationDelay: "6s", ["--t"]: "36s" }}>
-              {/* fuller gear */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <circle cx="12" cy="12" r="3.5" />
-                <circle cx="12" cy="12" r="6.5" />
-                <path d="M12 2.5v2.2" />
-                <path d="M12 19.3v2.2" />
-                <path d="M4.7 12H2.5" />
-                <path d="M21.5 12h-2.2" />
-                <path d="M6.6 6.6l1.6 1.6" />
-                <path d="M15.8 15.8l1.6 1.6" />
-                <path d="M17.4 6.6l-1.6 1.6" />
-                <path d="M8.2 15.8l-1.6 1.6" />
-              </svg>
-            </span>
-            <span className="process-node process-a" style={{ top: "65%", left: "12%", animationDelay: "12s", ["--t"]: "32s" }}>
-              {/* database */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <ellipse cx="12" cy="7" rx="5" ry="2.5" />
-                <path d="M7 7v10" />
-                <path d="M17 7v10" />
-                <ellipse cx="12" cy="12" rx="5" ry="2.5" />
-                <ellipse cx="12" cy="17" rx="5" ry="2.5" />
-              </svg>
-            </span>
-
-            {/* Group B: follows gold counter-diagonal */}
-            <span className="process-node process-b" style={{ top: "5%", left: "78%", animationDelay: "3s", ["--t"]: "38s" }}>
-              {/* fuller gear */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <circle cx="12" cy="12" r="3.5" />
-                <circle cx="12" cy="12" r="6.5" />
-                <path d="M12 2.5v2.2" />
-                <path d="M12 19.3v2.2" />
-                <path d="M4.7 12H2.5" />
-                <path d="M21.5 12h-2.2" />
-                <path d="M6.6 6.6l1.6 1.6" />
-                <path d="M15.8 15.8l1.6 1.6" />
-                <path d="M17.4 6.6l-1.6 1.6" />
-                <path d="M8.2 15.8l-1.6 1.6" />
-              </svg>
-            </span>
-            <span className="process-node process-b" style={{ top: "40%", left: "92%", animationDelay: "9s", ["--t"]: "44s" }}>
-              {/* curly braces */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M11 5c-2 0-3 1.5-3 3 0 1-.6 1.8-2 2.2 1.4.4 2 1.2 2 2.2 0 1.5 1 3 3 3" />
-                <path d="M13 5c2 0 3 1.5 3 3 0 1 .6 1.8 2 2.2-1.4.4-2 1.2-2 2.2 0 1.5-1 3-3 3" />
-              </svg>
-            </span>
-            <span className="process-node process-b" style={{ top: "78%", left: "70%", animationDelay: "15s", ["--t"]: "42s" }}>
-              {/* database */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <ellipse cx="12" cy="7" rx="5" ry="2.5" />
-                <path d="M7 7v10" />
-                <path d="M17 7v10" />
-                <ellipse cx="12" cy="12" rx="5" ry="2.5" />
-                <ellipse cx="12" cy="17" rx="5" ry="2.5" />
-              </svg>
-            </span>
-
-            {/* A couple of larger, faint nodes */}
-            <span className="process-node process-a process-lg" style={{ top: "18%", left: "46%", animationDelay: "4s", ["--t"]: "52s" }}>
-              {/* database (large) */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <ellipse cx="12" cy="7" rx="5" ry="2.5" />
-                <path d="M7 7v10" />
-                <path d="M17 7v10" />
-                <ellipse cx="12" cy="12" rx="5" ry="2.5" />
-                <ellipse cx="12" cy="17" rx="5" ry="2.5" />
-              </svg>
-            </span>
-            <span className="process-node process-b process-lg" style={{ top: "72%", left: "38%", animationDelay: "10s", ["--t"]: "56s" }}>
-              {/* gear (large) */}
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <circle cx="12" cy="12" r="4.5" />
-                <path d="M12 6.2v-2.2" />
-                <path d="M6.2 12H4" />
-                <path d="M20 12h-2.2" />
-              </svg>
-            </span>
-          </div>
+          <HeroNodes />
           <div className="relative z-10 mb-6 flex flex-col items-center gap-6 sm:flex-row-reverse sm:items-center sm:justify-center sm:gap-4">
             <Image
               src="/profile.jpg"
@@ -278,86 +104,8 @@ export default function Home() {
             <span className="mx-0.5 inline-block h-1.5 w-1.5 rounded-full bg-[var(--accent-gold)]/90" />
           </div>
 
-          {/* Tech Stack (moved under About) */}
-          <div className="mt-6">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-black">Tech Stack</h3>
-            <div className="mt-3 grid gap-4 sm:grid-cols-3">
-              {/* Language */}
-              <div>
-                <h4 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--accent-gold)]" aria-hidden="true" />
-                  Language
-                </h4>
-                <ul className="mt-2 flex flex-wrap gap-2" aria-label="Language">
-                  {["Python", "Java", "C++", "JavaScript"].map((t, i) => (
-                    <li key={t}>
-                      <a
-                        href={brandUrls[t] || "#"}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`${t} website`}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-800 opacity-0 transition will-change-transform hover:-translate-y-0.5 hover:shadow-sm active:scale-[0.98] dark:bg-gray-800 dark:text-gray-200"
-                        style={{ animation: 'stack-in 600ms cubic-bezier(0.16,1,0.3,1) forwards', animationDelay: `${i * 70}ms` }}
-                      >
-                        {renderBrandLogo(t)}
-                        {t}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Framework */}
-              <div className="mt-4 sm:mt-0">
-                <h4 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--accent-gold)]" aria-hidden="true" />
-                  Framework
-                </h4>
-                <ul className="mt-2 flex flex-wrap gap-2" aria-label="Framework">
-                  {["Next.js", "Tailwind CSS", "PyQt"].map((t, i) => (
-                    <li key={t}>
-                      <a
-                        href={brandUrls[t] || "#"}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`${t} website`}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-800 opacity-0 transition will-change-transform hover:-translate-y-0.5 hover:shadow-sm active:scale-[0.98] dark:bg-gray-800 dark:text-gray-200"
-                        style={{ animation: 'stack-in 600ms cubic-bezier(0.16,1,0.3,1) forwards', animationDelay: `${i * 70}ms` }}
-                      >
-                        {renderBrandLogo(t)}
-                        {t}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Tools */}
-              <div className="mt-4 sm:mt-0">
-                <h4 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--accent-gold)]" aria-hidden="true" />
-                  Tools
-                </h4>
-                <ul className="mt-2 flex flex-wrap gap-2" aria-label="Tools">
-                  {["Git", "GitHub", "Postman"].map((t, i) => (
-                    <li key={t}>
-                      <a
-                        href={brandUrls[t] || "#"}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`${t} website`}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-800 opacity-0 transition will-change-transform hover:-translate-y-0.5 hover:shadow-sm active:scale-[0.98] dark:bg-gray-800 dark:text-gray-200"
-                        style={{ animation: 'stack-in 600ms cubic-bezier(0.16,1,0.3,1) forwards', animationDelay: `${i * 70}ms` }}
-                      >
-                        {renderBrandLogo(t)}
-                        {t}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+          {/* Tech Stack (extracted into component for maintainability) */}
+          <TechStack />
         
         </section>
 
@@ -447,69 +195,7 @@ export default function Home() {
             </div>
 
             {/* Right: contact actions */}
-            <div className="flex flex-col gap-3">
-              <a
-                href="mailto:fuachie717@gmail.com?subject=Hello%20Ebenezer&body=Hi%20Ebenezer%2C%20"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent-gold)] px-5 py-3 text-sm font-semibold text-black transition hover:opacity-90"
-                aria-label="Email Ebenezer"
-              >
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-black">
-                  <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2v.01L12 12 4 6.01V6h16ZM4 18V8.236l7.386 5.54a1 1 0 0 0 1.228 0L20 8.236V18H4Z" />
-                </svg>
-                Email me
-              </a>
-
-              {whatsappHref ? (
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#25D366] px-5 py-3 text-sm font-medium text-[#128C7E] transition hover:bg-[#25D3661A]"
-                  aria-label="WhatsApp Ebenezer"
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-[#25D366]">
-                    <path d="M20.52 3.48A11.983 11.983 0 0 0 12.01 0C5.4 0 .05 5.35.05 11.96c0 2.11.55 4.17 1.59 5.99L0 24l6.2-1.62a11.94 11.94 0 0 0 5.81 1.52h.01c6.61 0 11.96-5.35 11.96-11.96 0-3.2-1.25-6.2-3.46-8.46ZM12.02 21.3h-.01a9.34 9.34 0 0 1-4.76-1.31l-.34-.2-3.68.96.98-3.59-.22-.37a9.3 9.3 0 0 1-1.43-4.95c0-5.15 4.19-9.34 9.35-9.34 2.5 0 4.85.97 6.61 2.73a9.27 9.27 0 0 1 2.73 6.61c0 5.16-4.2 9.34-9.43 9.34Zm5.38-6.98c-.29-.14-1.73-.86-2-.96-.27-.1-.46-.14-.66.14-.19.28-.76.96-.94 1.15-.17.19-.35.21-.64.07-.29-.14-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.35.43-.52.14-.17.19-.28.29-.48.1-.2.05-.38-.02-.52-.07-.14-.66-1.6-.91-2.19-.24-.57-.49-.49-.66-.5-.17-.01-.36-.01-.55-.01-.2 0-.52.07-.79.38-.27.31-1.04 1.02-1.04 2.49 0 1.46 1.07 2.88 1.22 3.08.14.19 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.73-.71 1.98-1.39.24-.67.24-1.25.17-1.39-.07-.14-.26-.22-.55-.36Z" />
-                  </svg>
-                  WhatsApp
-                </a>
-              ) : (
-                <span
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 px-5 py-3 text-sm font-medium text-gray-400 cursor-not-allowed select-none dark:border-gray-700 dark:text-gray-500"
-                  aria-disabled="true"
-                  title="Set NEXT_PUBLIC_WHATSAPP to enable WhatsApp"
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-gray-300 dark:fill-gray-600">
-                    <path d="M20.52 3.48A11.983 11.983 0 0 0 12.01 0C5.4 0 .05 5.35.05 11.96c0 2.11.55 4.17 1.59 5.99L0 24l6.2-1.62a11.94 11.94 0 0 0 5.81 1.52h.01c6.61 0 11.96-5.35 11.96-11.96 0-3.2-1.25-6.2-3.46-8.46ZM12.02 21.3h-.01a9.34 9.34 0 0 1-4.76-1.31l-.34-.2-1.5.39a1 1 0 0 1-1.2-1.2l.39-1.5-1.31-.34a9.34 9.34 0 0 1-1.31-4.76v-.01a9.34 9.34 0 0 1 1.31-4.76l.34-.2-.39-1.5a1 1 0 0 1 1.2-1.2l1.5.39.2-.34A9.34 9.34 0 0 1 12.02 3h.01a9.34 9.34 0 0 1 4.76 1.31l.34.2 1.5-.39a1 1 0 0 1 1.2 1.2l-.39 1.5.2.34A9.34 9.34 0 0 1 21.3 12h.01a9.34 9.34 0 0 1-1.31 4.76l-.34.2.39 1.5a1 1 0 0 1-1.2 1.2l-1.5-.39-.2.34A9.34 9.34 0 0 1 12.02 21.3Z" />
-                  </svg>
-                  WhatsApp
-                </span>
-              )}
-
-              <a
-                href="https://www.linkedin.com/in/fuachie-ebenezer/"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#0A66C2] px-5 py-3 text-sm font-medium text-[#0A66C2] transition hover:bg-[#0A66C21A]"
-                aria-label="Open LinkedIn profile in new tab"
-              >
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-[#0A66C2]">
-                  <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5Zm.02 6.5H2V22h3V10ZM8 10h3v1.75h.04c.42-.8 1.44-1.64 2.97-1.64C18.17 10.11 19 12 19 14.83V22h-3v-6.3c0-1.5-.03-3.42-2.09-3.42-2.1 0-2.42 1.64-2.42 3.32V22H8V10Z" />
-                </svg>
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/Ebene-zer"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-black px-5 py-3 text-sm font-medium text-black transition hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black"
-                aria-label="Open GitHub profile in new tab"
-              >
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M12 .5C5.73.5.98 5.24.98 11.52c0 4.86 3.16 8.98 7.55 10.43.55.1.75-.24.75-.53 0-.26-.01-1.13-.02-2.05-3.07.67-3.72-1.3-3.72-1.3-.5-1.28-1.22-1.63-1.22-1.63-.99-.68.07-.66.07-.66 1.09.08 1.66 1.12 1.66 1.12.97 1.66 2.53 1.18 3.15.9.1-.7.38-1.18.69-1.45-2.45-.28-5.02-1.22-5.02-5.44 0-1.2.43-2.18 1.12-2.95-.11-.27-.49-1.36.11-2.83 0 0 .93-.3 3.05 1.13.88-.24 1.82-.36 2.76-.36.94 0 1.88.12 2.76.36 2.12-1.42 3.05-1.13 3.05-1.13.6 1.47.22 2.56.11 2.83.69.77 1.12 1.75 1.12 2.95 0 4.23-2.58 5.15-5.04 5.43.39.33.73.98.73 1.98 0 1.43-.01 2.59-.01 2.94 0 .3.2.64.75.53 4.39-1.45 7.55-5.57 7.55-10.43C23.02 5.24 18.27.5 12 .5Z" />
-                </svg>
-                GitHub
-              </a>
-            </div>
+            <ContactActions whatsappHref={whatsappHref} />
           </div>
         </section>
       </main>
