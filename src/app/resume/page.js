@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Resume — Ebenezer Fuachie",
+  title: "Resume - Ebenezer Fuachie",
   description: "Resume/CV of Ebenezer Fuachie.",
 };
 

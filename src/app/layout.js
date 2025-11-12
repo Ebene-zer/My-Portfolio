@@ -32,7 +32,7 @@ export const viewport = {
 export const metadata = {
   // Use absolute base URL for OG/Twitter. Env overrides; dev defaults to localhost.
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
-  title: "Ebenezer Fuachie — Portfolio",
+  title: "Ebenezer Fuachie - Portfolio",
   description:
     "Personal portfolio of Ebenezer Fuachie showcasing projects, experience, and ways to get in touch.",
   authors: [{ name: "Ebenezer Fuachie" }],
@@ -47,11 +47,11 @@ export const metadata = {
   ],
   icons: "/favicon.ico",
   openGraph: {
-    title: "Ebenezer Fuachie — Portfolio",
+    title: "Ebenezer Fuachie - Portfolio",
     description:
       "Personal portfolio of Ebenezer Fuachie showcasing projects, experience, and ways to get in touch.",
     url: "/",
-    siteName: "Ebenezer Fuachie — Portfolio",
+    siteName: "Ebenezer Fuachie - Portfolio",
     locale: "en_US",
     type: "website",
     images: [
@@ -59,13 +59,13 @@ export const metadata = {
         url: ogImage.src,
         width: ogImage.width,
         height: ogImage.height,
-        alt: "Ebenezer Fuachie — Portfolio",
+        alt: "Ebenezer Fuachie - Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ebenezer Fuachie — Portfolio",
+    title: "Ebenezer Fuachie - Portfolio",
     description:
       "Personal portfolio of Ebenezer Fuachie showcasing projects, experience, and ways to get in touch.",
     images: [ogImage.src],

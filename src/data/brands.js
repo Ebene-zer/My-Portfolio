@@ -89,7 +89,6 @@ export const TECH_SECTIONS = [
       "CSS3",
       "React",
       "Next.js",
-      "CI/CD",
       "PyQt6",
       "MongoDB Atlas",
     ],
