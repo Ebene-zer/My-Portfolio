@@ -58,7 +58,7 @@ export default function Home() {
             <div className="text-center sm:text-left">
               <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl">Ebenezer Fuachie</h1>
               <p className="mt-2 text-xl font-medium text-gray-700 dark:text-gray-200 sm:text-2xl">
-                Junior Software Engineer
+                Junior Software Engineer (Backend-Focused)
               </p>
               <p className="mt-3 text-lg font-semibold text-[var(--accent-green)] typewriter">
                 Let&apos;s Solve Problems!
@@ -89,13 +89,15 @@ export default function Home() {
           <h2 className="text-2xl font-semibold tracking-tight">About</h2>
           <span className="mt-1 block h-1 w-12 rounded bg-[var(--accent-gold)]" aria-hidden="true" />
           <p className="mt-3 max-w-2xl text-gray-600 dark:text-gray-300">
-           I&apos;m a Junior Software Engineer with a strong focus on backend development using python (open to Learning New Stacks as well). 
-           I enjoy building real-world applications, learning through practical projects, and refining solutions to make them efficient and user-focused.
-           Currently open to internships and entry-level software development opportunities.
-
+           I’m a Junior Software Engineer with a strong focus on backend development in Python, and I’m always open to learning new tools and technologies. 
+           I enjoy building real-world applications, exploring system design, and refining solutions to make them efficient, scalable, and user-focused.
           </p>
           <p className="mt-3 max-w-2xl text-gray-600 dark:text-gray-300">
-            Interests: Software Development Life Cycle (SDLC), Data Structures & Algorithm, SQL, APIs and Backend development
+            I learn best through hands-on projects and continuous iteration. 
+            Currently open to internships, software development collaborations, and entry-level software engineering opportunities.
+          </p>
+          <p className="mt-3 max-w-2xl text-gray-600 dark:text-gray-300">
+            Interests: Problems Solving, Software Development Life Cycle (SDLC), Data Structures & Algorithm, SQL, APIs and Backend development.
           </p>
           {/* Divider between About and Tech Stack (tiny gold dots) */}
           <div className="mt-6 flex items-center justify-center" aria-hidden="true">
