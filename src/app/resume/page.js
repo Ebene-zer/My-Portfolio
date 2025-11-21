@@ -15,7 +15,7 @@ export default function ResumePage() {
       {/* Actions */}
       <div className="mt-5 flex flex-wrap gap-3">
         <a
-          href="/resume.pdf"
+          href="/Ebenezer_Fuachie_Resume.pdf"
           target="_blank"
           rel="noreferrer noopener"
           className="inline-flex items-center justify-center rounded-md bg-[var(--accent-gold)] px-4 py-2 text-sm font-medium text-black transition hover:opacity-90"
@@ -37,17 +37,17 @@ export default function ResumePage() {
       {/* Embedded viewer */}
       <div className="mt-6 overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800">
         <object
-          data="/resume.pdf#toolbar=0"
+          data="/Ebenezer_Fuachie_Resume.pdf#toolbar=0"
           type="application/pdf"
           className="h-[80vh] w-full"
         >
-          <iframe src="/resume.pdf" className="h-[80vh] w-full" title="Resume PDF" />
+          <iframe src="/Ebenezer_Fuachie_Resume.pdf" className="h-[80vh] w-full" title="Resume PDF" />
         </object>
       </div>
 
       {process.env.NODE_ENV === "development" && (
         <p className="mt-4 text-sm text-gray-500">
-          Don’t see the PDF? Ensure a file named <code>resume.pdf</code> exists in your <code>public/</code> folder
+          Don’t see the PDF? Ensure a file named <code>Ebenezer_Fuachie_Resume.pdf</code> exists in your <code>public/</code> folder
           or set <code>NEXT_PUBLIC_RESUME_URL</code> to an external document (e.g., Google Drive) and redeploy.
         </p>
       )}
