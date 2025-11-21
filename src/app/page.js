@@ -58,7 +58,8 @@ export default function Home() {
             <div className="text-center sm:text-left">
               <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl">Ebenezer Fuachie</h1>
               <p className="mt-2 text-xl font-medium text-gray-700 dark:text-gray-200 sm:text-2xl">
-                Junior Software Engineer (Backend-Focused)
+                Junior Software Engineer
+                <span className="block sm:inline"> (Backend-Focused)</span>
               </p>
               <p className="mt-3 text-lg font-semibold text-[var(--accent-green)] typewriter">
                 Let&apos;s Solve Problems!
@@ -204,11 +205,7 @@ export default function Home() {
 
       <footer className="mt-16 border-t border-[var(--accent-gold)] bg-white/60 py-8 text-sm text-gray-700 backdrop-blur dark:bg-black/40 dark:text-gray-300">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 sm:flex-row">
-          <p className="text-center sm:text-center">
-            © {new Date().getFullYear()} <span className="font-semibold">Ebenezer Fuachie</span>.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 order-1 sm:order-2">
             <a
               href="#home"
               className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-gray-800 transition hover:text-[var(--accent-gold)] dark:text-gray-200"
@@ -268,6 +265,11 @@ export default function Home() {
               GitHub
             </a>
           </div>
+
+          <p className="text-center sm:text-center order-3 sm:order-1">
+            © {new Date().getFullYear()} <span className="font-semibold">Ebenezer Fuachie</span>.
+          </p>
+
         </div>
       </footer>
     </>
